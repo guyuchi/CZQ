@@ -1,0 +1,72 @@
+---
+// src/components/TimelinePreview.astro
+import SectionCard from './SectionCard.astro';
+import { useTranslations, type Lang, getLocalizedPath } from '../i18n/utils';
+
+export interface Props {
+  currentLang: Lang;
+}
+
+const { currentLang } = Astro.props;
+const t = useTranslations(currentLang);
+
+const sections = [
+  { key: 'research', desc: 'Exploring technology-enhanced learning environments, instructional design, and digital pedagogy.' },
+  { key: 'publications', desc: 'Peer-reviewed journal articles, conference papers, and academic presentations.' },
+  { key: 'teaching', desc: 'University-level teaching experience in educational technology and instructional design.' },
+  { key: 'projects', desc: 'Research projects and academic collaborations in educational technology.' },
+  { key: 'blog', desc: 'Thoughts on educational technology, learning science, and academic life.' },
+  { key: 'cv', desc: 'Complete academic history, awards, and professional experience.' },
+  { key: 'contact', desc: 'Get in touch for collaboration opportunities.' },
+];
+---
+
+<section class="timeline-section">
+  <div class="timeline">
+    {sections.map((s) => (
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <SectionCard
+            title={t.sections[s.key as keyof typeof t.sections]}
+            description={s.desc}
+            href={getLocalizedPath(`/${s.key}`, currentLang)}
+          />
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .timeline-section { padding: var(--space-12) 0; }
+  .timeline {
+    position: relative;
+    padding-left: var(--space-8);
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--color-primary);
+    border-radius: 2px;
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: var(--space-4);
+  }
+  .timeline-dot {
+    position: absolute;
+    left: calc(-1 * var(--space-8) - 8px);
+    top: 24px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    border: 3px solid var(--color-bg);
+  }
+  .timeline-content { padding-left: var(--space-2); }
+</style>

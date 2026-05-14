@@ -1,0 +1,57 @@
+---
+// src/components/SectionCard.astro
+export interface Props {
+  title: string;
+  description: string;
+  href: string;
+}
+
+const { title, description, href } = Astro.props;
+---
+
+<article class="section-card">
+  <a href={href} class="card-link">
+    <h3 class="card-title">{title}</h3>
+    <p class="card-desc">{description}</p>
+    <span class="card-arrow">→</span>
+  </a>
+</article>
+
+<style>
+  .section-card {
+    margin-bottom: var(--space-2);
+  }
+  .card-link {
+    display: block;
+    padding: var(--space-4) var(--space-6);
+    background: var(--color-surface);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    transition: all 0.2s;
+    position: relative;
+  }
+  .card-link:hover {
+    border-color: var(--color-primary);
+    transform: translateX(4px);
+    box-shadow: 0 2px 12px rgba(27,58,92,0.1);
+  }
+  .card-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-1);
+  }
+  .card-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+  .card-arrow {
+    position: absolute;
+    right: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    font-size: var(--font-size-xl);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .card-link:hover .card-arrow { opacity: 1; }
+</style>
