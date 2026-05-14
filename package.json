@@ -11,5 +11,8 @@
   "description": "",
   "dependencies": {
     "astro": "^6.3.2"
+  },
+  "devDependencies": {
+    "@astrojs/mdx": "^5.0.5"
   }
 }
