@@ -13,6 +13,20 @@ export interface Props {
 const { title, description } = Astro.props;
 const canonicalURL = new URL(Astro.url);
 const currentLang = getLangFromUrl(canonicalURL);
+
+const site = 'https://your-site.vercel.app';
+const path = Astro.url.pathname;
+
+let defaultPath = path;
+if (defaultPath.startsWith('/en/')) {
+  defaultPath = defaultPath.slice(3);
+} else if (defaultPath === '/en') {
+  defaultPath = '/';
+}
+const enPath = path.startsWith('/en/') || path === '/en' ? path : `/en${path === '/' ? '' : path}`;
+
+const zhUrl = `${site}${defaultPath}`;
+const enUrl = `${site}${enPath}`;
 ---
 
 <!doctype html>
@@ -23,7 +37,12 @@ const currentLang = getLangFromUrl(canonicalURL);
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" hreflang="zh" href={zhUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={zhUrl} />
   </head>
   <body>
     <Nav currentLang={currentLang} currentPath={Astro.url.pathname} />

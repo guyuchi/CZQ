@@ -1,9 +1,13 @@
 ---
 import DetailLayout from '../../layouts/DetailLayout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
 ---
 
 <DetailLayout title="Contact - Dr. [Name]" description="Get in touch">
-  <h2>Contact</h2>
+  <h2>{t.sections.contact}</h2>
 
   <div class="contact-info">
     <p><strong>Email:</strong> name@example.edu</p>
@@ -11,18 +15,18 @@ import DetailLayout from '../../layouts/DetailLayout.astro';
 
   <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
     <label>
-      <span>Name</span>
+      <span>{t.contact.name}</span>
       <input type="text" name="name" required />
     </label>
     <label>
-      <span>Email</span>
+      <span>{t.contact.email}</span>
       <input type="email" name="email" required />
     </label>
     <label>
-      <span>Message</span>
+      <span>{t.contact.message}</span>
       <textarea name="message" rows="5" required></textarea>
     </label>
-    <button type="submit" class="btn">Send Message</button>
+    <button type="submit" class="btn">{t.common.send}</button>
   </form>
 </DetailLayout>
 

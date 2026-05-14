@@ -45,6 +45,15 @@ const translations = {
       message: '留言',
       success: '消息已发送，谢谢！',
     },
+    timeline: {
+      research: '探索技术增强学习环境、教学设计及数字教学法。',
+      publications: '同行评审期刊论文、会议论文及学术报告。',
+      teaching: '大学层面教育技术和教学设计教学经验。',
+      projects: '教育技术领域的研究项目和学术合作。',
+      blog: '关于教育技术、学习科学及学术生活的思考。',
+      cv: '完整的学术背景、荣誉奖项及专业经历。',
+      contact: '联系我，探讨合作机会。',
+    },
   },
   en: {
     nav: {
@@ -87,6 +96,15 @@ const translations = {
       email: 'Email',
       message: 'Message',
       success: 'Message sent, thank you!',
+    },
+    timeline: {
+      research: 'Exploring technology-enhanced learning environments, instructional design, and digital pedagogy.',
+      publications: 'Peer-reviewed journal articles, conference papers, and academic presentations.',
+      teaching: 'University-level teaching experience in educational technology and instructional design.',
+      projects: 'Research projects and academic collaborations in educational technology.',
+      blog: 'Thoughts on educational technology, learning science, and academic life.',
+      cv: 'Complete academic history, awards, and professional experience.',
+      contact: 'Get in touch for collaboration opportunities.',
     },
   },
 };

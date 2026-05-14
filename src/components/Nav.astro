@@ -1,7 +1,7 @@
 ---
 // src/components/Nav.astro
 import LanguageToggle from './LanguageToggle.astro';
-import { useTranslations, type Lang } from '../i18n/utils';
+import { useTranslations, type Lang, getLocalizedPath } from '../i18n/utils';
 
 export interface Props {
   currentLang: Lang;
@@ -20,24 +20,40 @@ const navItems = [
   { label: t.nav.cv, href: getLocalizedPath('/cv', currentLang) },
   { label: t.nav.contact, href: getLocalizedPath('/contact', currentLang) },
 ];
-
-function getLocalizedPath(path: string, lang: Lang): string {
-  if (lang === 'zh') return path;
-  return `/en${path}`;
-}
 ---
 
 <nav class="nav">
   <div class="nav-inner container">
     <a href={getLocalizedPath('/', currentLang)} class="nav-logo">Dr. Name</a>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       {navItems.map(item => (
         <a href={item.href} class="nav-link">{item.label}</a>
       ))}
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <LanguageToggle currentLang={currentLang} currentPath={currentPath} />
   </div>
 </nav>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('nav-links--open');
+    });
+    // Close menu when a nav link is clicked
+    navLinks.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('nav-links--open');
+      });
+    });
+  }
+</script>
 
 <style>
   .nav {
@@ -78,8 +94,37 @@ function getLocalizedPath(path: string, lang: Lang): string {
     border-radius: 4px;
   }
   .nav-link:hover { color: white; background: rgba(255,255,255,0.1); }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.3s;
+  }
   @media (max-width: 768px) {
     .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-links--open {
+      display: flex !important;
+      flex-direction: column;
+      position: absolute;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: var(--color-primary);
+      padding: var(--space-4);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
     .nav-inner { justify-content: space-between; }
   }
 </style>
