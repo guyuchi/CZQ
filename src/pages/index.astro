@@ -1,0 +1,14 @@
+---
+// src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TimelinePreview from '../components/TimelinePreview.astro';
+import { getLangFromUrl } from '../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+---
+
+<BaseLayout title="Dr. [Name] - 教育技术 · 个人主页" description="Educational Technology researcher personal website">
+  <Hero currentLang={currentLang} />
+  <TimelinePreview currentLang={currentLang} />
+</BaseLayout>
