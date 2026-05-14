@@ -12,11 +12,8 @@ const { currentLang, currentPath } = Astro.props;
 const t = useTranslations(currentLang);
 const navItems = [
   { label: t.nav.home, href: getLocalizedPath('/', currentLang) },
-  { label: t.nav.research, href: getLocalizedPath('/research', currentLang) },
   { label: t.nav.publications, href: getLocalizedPath('/publications', currentLang) },
-  { label: t.nav.teaching, href: getLocalizedPath('/teaching', currentLang) },
   { label: t.nav.projects, href: getLocalizedPath('/projects', currentLang) },
-  { label: t.nav.blog, href: getLocalizedPath('/blog', currentLang) },
   { label: t.nav.cv, href: getLocalizedPath('/cv', currentLang) },
   { label: t.nav.contact, href: getLocalizedPath('/contact', currentLang) },
 ];
@@ -24,7 +21,7 @@ const navItems = [
 
 <nav class="nav">
   <div class="nav-inner container">
-    <a href={getLocalizedPath('/', currentLang)} class="nav-logo">Ziqi Chen</a>
+    <a href={getLocalizedPath('/', currentLang)} class="nav-logo">{t.name}</a>
     <div class="nav-links" id="nav-links">
       {navItems.map(item => (
         <a href={item.href} class="nav-link">{item.label}</a>

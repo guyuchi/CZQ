@@ -6,56 +6,40 @@ const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 ---
 
-<DetailLayout title="联系方式 - Ziqi Chen" description="Get in touch">
+<DetailLayout title="联系方式 - 陈子淇" description="Get in touch">
   <h2>{t.sections.contact}</h2>
 
   <div class="contact-info">
     <p><strong>Email:</strong> ziqichentech@hotmail.com</p>
   </div>
 
-  <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-    <label>
-      <span>{t.contact.name}</span>
-      <input type="text" name="name" required />
-    </label>
-    <label>
-      <span>{t.contact.email}</span>
-      <input type="email" name="email" required />
-    </label>
-    <label>
-      <span>{t.contact.message}</span>
-      <textarea name="message" rows="5" required></textarea>
-    </label>
-    <button type="submit" class="btn">{t.common.send}</button>
-  </form>
+  <div class="social-links">
+    <a href="https://x.com/ZiqiChen" class="social-link" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+    <a href="https://scholar.google.com/citations?user=YOUR_ID" class="social-link" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+    <a href="https://www.linkedin.com/in/ziqichen" class="social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://orcid.org/0000-0000-0000-0000" class="social-link" target="_blank" rel="noopener noreferrer">ORCID</a>
+  </div>
 </DetailLayout>
 
 <style>
   .contact-info { margin-bottom: var(--space-8); }
-  .contact-form label {
-    display: block;
-    margin-bottom: var(--space-4);
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
   }
-  .contact-form span {
-    display: block;
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    margin-bottom: var(--space-1);
-    color: var(--color-text);
-  }
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: var(--space-2) var(--space-3);
+  .social-link {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 6px;
-    font-family: var(--font-sans);
     font-size: var(--font-size-base);
-    background: var(--color-surface);
+    transition: all 0.2s;
+    width: fit-content;
   }
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    outline: none;
+  .social-link:hover {
     border-color: var(--color-primary);
+    transform: translateX(4px);
   }
 </style>

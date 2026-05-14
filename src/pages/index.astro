@@ -3,12 +3,40 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import TimelinePreview from '../components/TimelinePreview.astro';
-import { getLangFromUrl } from '../i18n/utils';
+import { useTranslations, getLangFromUrl } from '../i18n/utils';
 
 const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+const isZh = currentLang === 'zh';
 ---
 
-<BaseLayout title="Ziqi Chen - 教育技术 · 个人主页" description="Educational Technology researcher personal website">
+<BaseLayout title="陈子淇 - 教育技术 · 个人主页" description="Educational Technology researcher personal website">
   <Hero currentLang={currentLang} />
+  <section class="section container">
+    <h2>{t.sections.research}</h2>
+    {isZh ? (
+      <>
+        <p>我的研究聚焦于人工智能在教育中的应用，主要研究方向包括：</p>
+        <ul>
+          <li><strong>AI in Education</strong> — 人工智能技术在教育场景中的整合与应用</li>
+          <li><strong>AI-Assisted Learning Assessment</strong> — 基于人工智能的学习评估方法</li>
+          <li><strong>Feedback Practice</strong> — 学习反馈机制与实践研究</li>
+          <li><strong>Educational Data Mining and Analysis</strong> — 教育数据挖掘与分析</li>
+          <li><strong>Emotions in Learning</strong> — 学习过程中的情感因素研究</li>
+        </ul>
+      </>
+    ) : (
+      <>
+        <p>My research focuses on the application of Artificial Intelligence in education, with specific interests in:</p>
+        <ul>
+          <li><strong>AI in Education</strong> — Integration and application of AI technologies in educational settings</li>
+          <li><strong>AI-Assisted Learning Assessment</strong> — AI-driven approaches to learning evaluation</li>
+          <li><strong>Feedback Practice</strong> — Feedback mechanisms and practices in learning</li>
+          <li><strong>Educational Data Mining and Analysis</strong> — Mining and analyzing educational data</li>
+          <li><strong>Emotions in Learning</strong> — Affective factors in the learning process</li>
+        </ul>
+      </>
+    )}
+  </section>
   <TimelinePreview currentLang={currentLang} />
 </BaseLayout>

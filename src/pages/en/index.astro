@@ -3,11 +3,24 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import TimelinePreview from '../../components/TimelinePreview.astro';
+import { useTranslations } from '../../i18n/utils';
 
 const currentLang = 'en';
+const t = useTranslations('en');
 ---
 
 <BaseLayout title="Ziqi Chen - Educational Technology · Personal Website" description="Educational Technology researcher personal website">
   <Hero currentLang={currentLang} />
+  <section class="section container">
+    <h2>{t.sections.research}</h2>
+    <p>My research focuses on the application of Artificial Intelligence in education, with specific interests in:</p>
+    <ul>
+      <li><strong>AI in Education</strong> — Integration and application of AI technologies in educational settings</li>
+      <li><strong>AI-Assisted Learning Assessment</strong> — AI-driven approaches to learning evaluation</li>
+      <li><strong>Feedback Practice</strong> — Feedback mechanisms and practices in learning</li>
+      <li><strong>Educational Data Mining and Analysis</strong> — Mining and analyzing educational data</li>
+      <li><strong>Emotions in Learning</strong> — Affective factors in the learning process</li>
+    </ul>
+  </section>
   <TimelinePreview currentLang={currentLang} />
 </BaseLayout>

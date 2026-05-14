@@ -4,6 +4,7 @@ export type Lang = 'zh' | 'en';
 
 const translations = {
   zh: {
+    name: '陈子淇',
     nav: {
       home: '首页',
       research: '研究方向',
@@ -57,6 +58,7 @@ const translations = {
     },
   },
   en: {
+    name: 'Ziqi Chen',
     nav: {
       home: 'Home',
       research: 'Research',
