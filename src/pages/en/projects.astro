@@ -2,7 +2,33 @@
 import DetailLayout from '../../layouts/DetailLayout.astro';
 ---
 
-<DetailLayout title="Projects - Dr. [Name]" description="Research projects">
+<DetailLayout title="Projects - Ziqi Chen" description="Research projects">
   <h2>Projects</h2>
-  <p>Coming soon: Research projects and academic collaborations.</p>
+
+  <article class="project-item">
+    <h3>Integrating Generative AI Chatbots with Academic Writing and Feedback Practice</h3>
+    <p class="project-period">MPU Funded Project | 2023.08 - 2026.08</p>
+    <p>Role: Core member, responsible for project writing and research work.</p>
+    <p>Integrating GenAI chatbots into academic writing and feedback practice, exploring the application of AI in learning assessment and student interaction patterns.</p>
+  </article>
+
+  <article class="project-item">
+    <h3>Trust, Emotions and Engagement While Interacting with Generative AI Output</h3>
+    <p class="project-period">MPU Funded Project | 2025.07 - 2028.07</p>
+    <p>Role: Core member, responsible for project writing and research work.</p>
+    <p>Investigating the relationships between user trust, emotional responses, and engagement with GenAI outputs in educational and professional settings.</p>
+  </article>
+
+  <article class="project-item">
+    <h3>PhD Seminar: Measuring and Analyzing Students' Emotions in Learning</h3>
+    <p class="project-period">MPU Faculty of Applied Sciences | 2025.04</p>
+    <p>Role: Main Speaker</p>
+    <p>Presented methods for measuring and analyzing emotional responses in learning, showcasing novel assessment frameworks and fostering interdisciplinary collaboration.</p>
+  </article>
 </DetailLayout>
+
+<style>
+  .project-item { padding: var(--space-4) 0; border-bottom: 1px solid var(--color-border); }
+  .project-item:last-child { border-bottom: none; }
+  .project-period { font-size: var(--font-size-sm); color: var(--color-secondary); margin-bottom: var(--space-2); }
+</style>

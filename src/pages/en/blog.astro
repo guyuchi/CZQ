@@ -20,7 +20,7 @@ const posts = await Promise.all(
 );
 ---
 
-<DetailLayout title="Blog - Dr. [Name]" description={t.blog.title}>
+<DetailLayout title="Blog - Ziqi Chen" description={t.blog.title}>
   <h2>{t.blog.title}</h2>
   {posts.length > 0 ? (
     posts.map(({ data, Content }) => (

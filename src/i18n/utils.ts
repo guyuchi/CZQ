@@ -17,6 +17,7 @@ const translations = {
     hero: {
       title: '博士 · 教育技术',
       subtitle: '探索技术与教育的深度融合',
+      bio: '教育技术研究者，专注于利用人工智能技术增强学习体验。研究涵盖AI辅助学习评估、反馈实践、教育数据挖掘及学习情感分析等领域。',
     },
     sections: {
       research: '研究方向',
@@ -69,6 +70,7 @@ const translations = {
     hero: {
       title: 'PhD · Educational Technology',
       subtitle: 'Exploring the integration of technology and education',
+      bio: 'Educational Technology researcher passionate about leveraging AI to enhance learning experiences. Research focuses on AI-assisted learning assessment, feedback practice, educational data mining, and emotions in learning.',
     },
     sections: {
       research: 'Research Interests',
