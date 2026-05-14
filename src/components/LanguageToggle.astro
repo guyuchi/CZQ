@@ -1,0 +1,33 @@
+---
+// src/components/LanguageToggle.astro
+import { getLocalizedPath, type Lang } from '../i18n/utils';
+
+export interface Props {
+  currentLang: Lang;
+  currentPath: string;
+}
+
+const { currentLang, currentPath } = Astro.props;
+const targetLang: Lang = currentLang === 'zh' ? 'en' : 'zh';
+const targetPath = getLocalizedPath(currentPath.replace(/^\/en/, '') || '/', targetLang);
+---
+
+<a class="lang-toggle" href={targetPath}>
+  {currentLang === 'zh' ? 'EN' : '中'}
+</a>
+
+<style>
+  .lang-toggle {
+    padding: 4px 12px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 4px;
+    color: white;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .lang-toggle:hover {
+    background: rgba(255,255,255,0.15);
+    color: white;
+  }
+</style>

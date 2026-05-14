@@ -1,0 +1,28 @@
+---
+// src/layouts/DetailLayout.astro
+import BaseLayout from './BaseLayout.astro';
+import type { Props as BaseProps } from './BaseLayout.astro';
+
+export interface Props extends BaseProps {}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="detail-page">
+    <article class="container detail-content">
+      <slot />
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .detail-page {
+    padding-top: calc(var(--nav-height) + var(--space-12));
+    padding-bottom: var(--space-16);
+    min-height: 100vh;
+  }
+  .detail-content {
+    max-width: var(--max-width);
+  }
+</style>

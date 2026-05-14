@@ -1,0 +1,85 @@
+---
+// src/components/Nav.astro
+import LanguageToggle from './LanguageToggle.astro';
+import { useTranslations, type Lang } from '../i18n/utils';
+
+export interface Props {
+  currentLang: Lang;
+  currentPath: string;
+}
+
+const { currentLang, currentPath } = Astro.props;
+const t = useTranslations(currentLang);
+const navItems = [
+  { label: t.nav.home, href: getLocalizedPath('/', currentLang) },
+  { label: t.nav.research, href: getLocalizedPath('/research', currentLang) },
+  { label: t.nav.publications, href: getLocalizedPath('/publications', currentLang) },
+  { label: t.nav.teaching, href: getLocalizedPath('/teaching', currentLang) },
+  { label: t.nav.projects, href: getLocalizedPath('/projects', currentLang) },
+  { label: t.nav.blog, href: getLocalizedPath('/blog', currentLang) },
+  { label: t.nav.cv, href: getLocalizedPath('/cv', currentLang) },
+  { label: t.nav.contact, href: getLocalizedPath('/contact', currentLang) },
+];
+
+function getLocalizedPath(path: string, lang: Lang): string {
+  if (lang === 'zh') return path;
+  return `/en${path}`;
+}
+---
+
+<nav class="nav">
+  <div class="nav-inner container">
+    <a href={getLocalizedPath('/', currentLang)} class="nav-logo">Dr. Name</a>
+    <div class="nav-links">
+      {navItems.map(item => (
+        <a href={item.href} class="nav-link">{item.label}</a>
+      ))}
+    </div>
+    <LanguageToggle currentLang={currentLang} currentPath={currentPath} />
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background: var(--color-primary);
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+  .nav-logo {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+  .nav-logo:hover { color: white; opacity: 0.9; }
+  .nav-links {
+    display: flex;
+    gap: var(--space-1);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-link {
+    color: rgba(255,255,255,0.8);
+    font-size: var(--font-size-sm);
+    padding: var(--space-1) var(--space-2);
+    white-space: nowrap;
+    border-radius: 4px;
+  }
+  .nav-link:hover { color: white; background: rgba(255,255,255,0.1); }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-inner { justify-content: space-between; }
+  }
+</style>

@@ -1,0 +1,31 @@
+---
+// src/components/Footer.astro
+import { useTranslations, type Lang } from '../i18n/utils';
+
+export interface Props {
+  currentLang: Lang;
+}
+
+const { currentLang } = Astro.props;
+const t = useTranslations(currentLang);
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>{t.common.copyright}</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-8) 0;
+    margin-top: var(--space-16);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+</style>
