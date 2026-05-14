@@ -1,0 +1,30 @@
+---
+export interface Props {
+  title: string;
+  authors: string;
+  venue: string;
+  year: number;
+  link?: string;
+}
+
+const { title, authors, venue, year, link } = Astro.props;
+---
+
+<article class="pub-item">
+  <h3 class="pub-title">{title}</h3>
+  <p class="pub-authors">{authors}</p>
+  <p class="pub-venue">{venue}, {year}</p>
+  {link && <a href={link} class="pub-link">Paper →</a>}
+</article>
+
+<style>
+  .pub-item {
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-title { font-size: var(--font-size-base); margin-bottom: var(--space-1); }
+  .pub-authors { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+  .pub-venue { font-size: var(--font-size-sm); color: var(--color-secondary); font-style: italic; margin-bottom: var(--space-2); }
+  .pub-link { font-size: var(--font-size-sm); font-weight: 500; }
+</style>
