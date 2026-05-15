@@ -3,13 +3,20 @@
 import BaseLayout from './BaseLayout.astro';
 import type { Props as BaseProps } from './BaseLayout.astro';
 
-export interface Props extends BaseProps {}
+export interface Props extends BaseProps {
+  sectionTitle?: string;
+}
 
-const { title, description } = Astro.props;
+const { title, description, sectionTitle } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
   <div class="detail-page">
+    {sectionTitle && (
+      <div class="detail-header">
+        <h2 class="detail-title">{sectionTitle}</h2>
+      </div>
+    )}
     <article class="container detail-content">
       <slot />
     </article>
@@ -21,6 +28,14 @@ const { title, description } = Astro.props;
     padding-top: calc(var(--nav-height) + var(--space-12));
     padding-bottom: var(--space-16);
     min-height: 100vh;
+  }
+  .detail-header {
+    background: var(--color-bg);
+    text-align: center;
+    padding: var(--space-8) var(--space-6);
+  }
+  .detail-title {
+    margin-bottom: 0;
   }
   .detail-content {
     max-width: var(--max-width);

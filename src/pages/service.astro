@@ -6,8 +6,7 @@ const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 ---
 
-<DetailLayout title="服务 - 陈子淇" description="Academic service">
-  <h2>{t.sections.service}</h2>
+<DetailLayout title="服务 - 陈子淇" description="Academic service" sectionTitle={t.sections.service}>
 
   <section>
     <h3>学术审稿</h3>
