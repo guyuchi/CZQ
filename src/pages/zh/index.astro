@@ -1,48 +1,64 @@
 ---
-// src/pages/en/index.astro
+// src/pages/index.astro
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
-import { useTranslations } from '../../i18n/utils';
+import { useTranslations, getLangFromUrl } from '../../i18n/utils';
 
-const currentLang = 'en';
-const t = useTranslations('en');
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+const isZh = currentLang === 'zh';
 ---
 
-<BaseLayout title="Ziqi Chen - Educational Technology · Personal Website" description="Educational Technology researcher personal website">
+<BaseLayout title="陈子淇 - 教育技术 · 个人主页" description="Educational Technology researcher personal website">
   <Hero currentLang={currentLang} />
 
   <div class="content-section">
   <section class="section container">
     <h2>{t.sections.research}</h2>
-    <p>My research focuses on the application of Artificial Intelligence in education, with specific interests in:</p>
+    {isZh ? (
+      <>
+        <p>我的研究聚焦于人工智能在教育中的应用，主要研究方向包括：</p>
+        <ul>
+          <li><strong>AI in Education</strong> — 人工智能技术在教育场景中的整合与应用</li>
+          <li><strong>AI-Assisted Learning Assessment</strong> — 基于人工智能的学习评估方法</li>
+          <li><strong>Feedback Practice</strong> — 学习反馈机制与实践研究</li>
+          <li><strong>Educational Data Mining and Analysis</strong> — 教育数据挖掘与分析</li>
+          <li><strong>Emotions in Learning</strong> — 学习过程中的情感因素研究</li>
+        </ul>
+      </>
+    ) : (
+      <>
+        <p>My research focuses on the application of Artificial Intelligence in education, with specific interests in:</p>
+        <ul>
+          <li><strong>AI in Education</strong> — Integration and application of AI technologies in educational settings</li>
+          <li><strong>AI-Assisted Learning Assessment</strong> — AI-driven approaches to learning evaluation</li>
+          <li><strong>Feedback Practice</strong> — Feedback mechanisms and practices in learning</li>
+          <li><strong>Educational Data Mining and Analysis</strong> — Mining and analyzing educational data</li>
+          <li><strong>Emotions in Learning</strong> — Affective factors in the learning process</li>
+        </ul>
+      </>
+    )}
+  </section>
+
+  <section class="section container">
+    <h2>{isZh ? '教育背景' : 'Education'}</h2>
     <ul>
-      <li><strong>AI in Education</strong> — Integration and application of AI technologies in educational settings</li>
-      <li><strong>AI-Assisted Learning Assessment</strong> — AI-driven approaches to learning evaluation</li>
-      <li><strong>Feedback Practice</strong> — Feedback mechanisms and practices in learning</li>
-      <li><strong>Educational Data Mining and Analysis</strong> — Mining and analyzing educational data</li>
-      <li><strong>Emotions in Learning</strong> — Affective factors in the learning process</li>
+      <li><strong>{isZh ? '澳门理工大学 (MPU)' : 'Macao Polytechnic University (MPU)'}</strong> — {isZh ? '教育技术与创新 哲学博士' : 'PhD in Educational Technology and Innovation'}, 2023.08 - 2026.09</li>
+      <li><strong>{isZh ? '澳门大学 (UM)' : 'University of Macau (UM)'}</strong> — {isZh ? '数据科学 理学硕士' : 'MSc in Data Science'}, 2021.08 - 2023.06</li>
+      <li><strong>{isZh ? '广东工业大学 (GDUT)' : 'Guangdong University of Technology (GDUT)'}</strong> — {isZh ? '应用统计学 理学学士' : 'BSc in Applied Statistics'}, 2017.09 - 2021.06</li>
     </ul>
   </section>
 
   <section class="section container">
-    <h2>Education</h2>
+    <h2>{isZh ? '专业技能' : 'Skills'}</h2>
     <ul>
-      <li><strong>Macao Polytechnic University (MPU)</strong> — PhD in Educational Technology and Innovation, Aug 2023 - Sep 2026</li>
-      <li><strong>University of Macau (UM)</strong> — MSc in Data Science, Aug 2021 - Jun 2023</li>
-      <li><strong>Guangdong University of Technology (GDUT)</strong> — BSc in Applied Statistics, Sep 2017 - Jun 2021</li>
-    </ul>
-  </section>
-
-  <section class="section container">
-    <h2>Skills</h2>
-    <ul>
-      <li><strong>Programming:</strong> Python, R, Tableau, SPSS</li>
-      <li><strong>Languages:</strong> English (Full English Instruction), Cantonese, Mandarin, Japanese (N5)</li>
+      <li><strong>{isZh ? '编程：' : 'Programming: '}</strong> Python, R, Tableau, SPSS</li>
+      <li><strong>{isZh ? '语言：' : 'Languages: '}</strong> {isZh ? '英语 (全英教学), 粤语, 普通话, 日语 (N5)' : 'English (Full English Instruction), Cantonese, Mandarin, Japanese (N5)'}</li>
     </ul>
   </section>
 
   <div class="section container" style="margin-top: var(--space-4)">
-    <a href="/CV2026-CHEN_ZIQI.docx" class="btn" download>Download CV (DOCX)</a>
+    <a href="/CV2026-CHEN_ZIQI.docx" class="btn" download>{isZh ? '下载简历 (DOCX)' : 'Download CV (DOCX)'}</a>
   </div>
 
   <section class="section container">

@@ -1,25 +1,24 @@
 ---
 import DetailLayout from '../layouts/DetailLayout.astro';
-import { useTranslations, getLangFromUrl } from '../i18n/utils';
+import { useTranslations } from '../i18n/utils';
 
-const currentLang = getLangFromUrl(Astro.url);
-const t = useTranslations(currentLang);
+const t = useTranslations('en');
 ---
 
-<DetailLayout title="服务 - 陈子淇" description="Academic service" sectionTitle={t.sections.service}>
+<DetailLayout title="Service - Ziqi Chen" description="Academic service" sectionTitle={t.sections.service}>
 
   <section>
-    <h3>学术审稿</h3>
+    <h3>Peer Review</h3>
     <ul>
-      <li>同行评审期刊论文审稿人</li>
-      <li>国际会议论文审稿人</li>
+      <li>Peer reviewer for journal articles</li>
+      <li>Reviewer for international conference papers</li>
     </ul>
   </section>
 
   <section>
-    <h3>专业会员</h3>
+    <h3>Professional Memberships</h3>
     <ul>
-      <li>教育技术相关学术组织成员</li>
+      <li>Member of educational technology academic organizations</li>
     </ul>
   </section>
 </DetailLayout>

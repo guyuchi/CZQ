@@ -9,11 +9,11 @@ export interface Props {
 
 const { currentLang, currentPath } = Astro.props;
 const targetLang: Lang = currentLang === 'zh' ? 'en' : 'zh';
-const targetPath = getLocalizedPath(currentPath.replace(/^\/en/, '') || '/', targetLang);
+const targetPath = getLocalizedPath(currentPath.replace(/^\/zh/, '') || '/', targetLang);
 ---
 
 <a class="lang-toggle" href={targetPath}>
-  {currentLang === 'zh' ? 'EN' : '中'}
+  {currentLang === 'en' ? '中' : 'EN'}
 </a>
 
 <style>

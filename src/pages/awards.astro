@@ -1,19 +1,18 @@
 ---
 import DetailLayout from '../layouts/DetailLayout.astro';
-import { useTranslations, getLangFromUrl } from '../i18n/utils';
+import { useTranslations } from '../i18n/utils';
 
-const currentLang = getLangFromUrl(Astro.url);
-const t = useTranslations(currentLang);
+const t = useTranslations('en');
 ---
 
-<DetailLayout title="奖项荣誉 - 陈子淇" description="Awards and honors" sectionTitle={t.sections.awards}>
+<DetailLayout title="Awards & Honors - Ziqi Chen" description="Awards and honors" sectionTitle={t.sections.awards}>
 
   <section>
     <ul>
-      <li><strong>全额博士奖学金</strong> — 澳门理工大学 (2023.09 - 2026.09)</li>
-      <li><strong>暑期学校</strong> — 上海纽约大学 (2024.06 - 2024.07)</li>
-      <li><strong>研究助理奖学金</strong> — 澳门大学 (2022.01 - 2022.05)</li>
-      <li><strong>交换生</strong> — 国际教养大学暑期项目, 日本 (2022.06 - 2022.07)</li>
+      <li><strong>Full Doctoral Scholarship</strong> — Macao Polytechnic University (2023.09 - 2026.09)</li>
+      <li><strong>Summer School</strong> — Shanghai New York University (2024.06 - 2024.07)</li>
+      <li><strong>Research Assistant Scholarship</strong> — University of Macau (2022.01 - 2022.05)</li>
+      <li><strong>Exchange Student</strong> — Akita International University Summer Program, Japan (2022.06 - 2022.07)</li>
     </ul>
   </section>
 </DetailLayout>

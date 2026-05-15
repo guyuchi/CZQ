@@ -113,11 +113,11 @@ export function useTranslations(lang: Lang) {
 
 export function getLangFromUrl(url: URL): Lang {
   const parts = url.pathname.split('/').filter(Boolean);
-  if (parts[0] === 'en') return 'en';
-  return 'zh';
+  if (parts[0] === 'zh') return 'zh';
+  return 'en';
 }
 
 export function getLocalizedPath(path: string, lang: Lang): string {
-  if (lang === 'zh') return path;
-  return `/en${path}`;
+  if (lang === 'en') return path;
+  return `/zh${path}`;
 }

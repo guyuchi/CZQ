@@ -18,15 +18,15 @@ const site = 'https://your-site.vercel.app';
 const path = Astro.url.pathname;
 
 let defaultPath = path;
-if (defaultPath.startsWith('/en/')) {
+if (defaultPath.startsWith('/zh/')) {
   defaultPath = defaultPath.slice(3);
-} else if (defaultPath === '/en') {
+} else if (defaultPath === '/zh') {
   defaultPath = '/';
 }
-const enPath = path.startsWith('/en/') || path === '/en' ? path : `/en${path === '/' ? '' : path}`;
+const zhPath = path.startsWith('/zh/') || path === '/zh' ? path : `/zh${path === '/' ? '' : path}`;
 
-const zhUrl = `${site}${defaultPath}`;
-const enUrl = `${site}${enPath}`;
+const enUrl = `${site}${defaultPath}`;
+const zhUrl = `${site}${zhPath}`;
 ---
 
 <!doctype html>
@@ -40,9 +40,9 @@ const enUrl = `${site}${enPath}`;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" hreflang="zh" href={zhUrl} />
     <link rel="alternate" hreflang="en" href={enUrl} />
-    <link rel="alternate" hreflang="x-default" href={zhUrl} />
+    <link rel="alternate" hreflang="zh" href={zhUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
   </head>
   <body>
     <Nav currentLang={currentLang} currentPath={Astro.url.pathname} />
