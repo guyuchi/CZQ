@@ -15,7 +15,7 @@ const translations = {
     hero: {
       title: '博士 · 教育技术',
       subtitle: '探索技术与教育的深度融合',
-      bio: '教育技术研究者，专注于利用人工智能技术增强学习体验。研究涵盖AI辅助学习评估、反馈实践、教育数据挖掘及学习情感分析等领域。',
+      bio: '陈子淇是澳门理工大学应用科学学院教育技术与创新专业的博士候选人。她拥有澳门大学数据科学硕士学位。她的跨学科研究聚焦于教育领域的生成式人工智能、以学习为导向的评估、技术增强型反馈以及教育数据挖掘与分析，致力于构建能够真正改善教学、学习和反馈实践的有效人工智能应用。她始终追求卓越的研究成果，并在国际顶尖期刊和会议上发表过多篇论文。',
     },
     sections: {
       research: '研究方向',
@@ -66,7 +66,7 @@ const translations = {
     hero: {
       title: 'PhD · Educational Technology',
       subtitle: 'Exploring the integration of technology and education',
-      bio: 'Educational Technology researcher passionate about leveraging AI to enhance learning experiences. Research focuses on AI-assisted learning assessment, feedback practice, educational data mining, and emotions in learning.',
+      bio: 'Ziqi Chen is a PhD candidate in Educational Technology and Innovation at the Faculty of Applied Sciences, Macao Polytechnic University (MPU). She received her MSc in Data Science from the University of Macau. Her interdisciplinary research focuses on Generative AI in Education, learning-oriented assessment, technology-enhanced feedback, and educational data mining & analysis, and seeks to build effective AI+ applications that genuinely improve teaching, learning and feedback practices. She always strives for research excellence and has published in leading international journals and conferences.',
     },
     sections: {
       research: 'Research Interests',
