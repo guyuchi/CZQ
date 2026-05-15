@@ -59,7 +59,7 @@ const translations = {
     nav: {
       home: 'Home',
       publications: 'Publications',
-      projects: 'Projects',
+      projects: 'Funding',
       awards: 'Awards & Honors',
       service: 'Service',
     },
@@ -71,7 +71,7 @@ const translations = {
     sections: {
       research: 'Research Interests',
       publications: 'Publications',
-      projects: 'Projects',
+      projects: 'Funding',
       awards: 'Awards & Honors',
       service: 'Service',
       cv: 'Curriculum Vitae',
