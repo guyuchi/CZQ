@@ -18,7 +18,9 @@ const { title, description, sectionTitle } = Astro.props;
       </div>
     )}
     <article class="detail-content">
-      <slot />
+      <div class="detail-body">
+        <slot />
+      </div>
     </article>
   </div>
 </BaseLayout>
@@ -41,5 +43,9 @@ const { title, description, sectionTitle } = Astro.props;
     width: 100%;
     background: var(--color-surface);
     padding: var(--space-8) var(--space-6);
+  }
+  .detail-body {
+    max-width: var(--max-width);
+    margin: 0 auto;
   }
 </style>

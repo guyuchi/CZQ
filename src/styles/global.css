@@ -66,9 +66,9 @@ h1, h2, h3, h4 {
   color: var(--color-primary);
 }
 
-h1 { font-size: var(--font-size-4xl); }
-h2 { font-size: var(--font-size-2xl); margin-bottom: var(--space-4); }
-h3 { font-size: var(--font-size-xl); }
+h1 { font-size: calc(var(--font-size-4xl) + 4px); }
+h2 { font-size: calc(var(--font-size-2xl) + 4px); margin-bottom: var(--space-4); }
+h3 { font-size: calc(var(--font-size-xl) + 4px); }
 
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-6); }
 
