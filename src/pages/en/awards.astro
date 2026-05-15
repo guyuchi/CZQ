@@ -1,0 +1,19 @@
+---
+import DetailLayout from '../../layouts/DetailLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('en');
+---
+
+<DetailLayout title="Awards & Honors - Ziqi Chen" description="Awards and honors">
+  <h2>{t.sections.awards}</h2>
+
+  <section>
+    <ul>
+      <li><strong>Full Doctoral Scholarship</strong> — Macao Polytechnic University (2023.09 - 2026.09)</li>
+      <li><strong>Summer School</strong> — Shanghai New York University (2024.06 - 2024.07)</li>
+      <li><strong>Research Assistant Scholarship</strong> — University of Macau (2022.01 - 2022.05)</li>
+      <li><strong>Exchange Student</strong> — Akita International University Summer Program, Japan (2022.06 - 2022.07)</li>
+    </ul>
+  </section>
+</DetailLayout>

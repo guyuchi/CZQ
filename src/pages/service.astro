@@ -1,0 +1,26 @@
+---
+import DetailLayout from '../layouts/DetailLayout.astro';
+import { useTranslations, getLangFromUrl } from '../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+---
+
+<DetailLayout title="服务 - 陈子淇" description="Academic service">
+  <h2>{t.sections.service}</h2>
+
+  <section>
+    <h3>学术审稿</h3>
+    <ul>
+      <li>同行评审期刊论文审稿人</li>
+      <li>国际会议论文审稿人</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>专业会员</h3>
+    <ul>
+      <li>教育技术相关学术组织成员</li>
+    </ul>
+  </section>
+</DetailLayout>
