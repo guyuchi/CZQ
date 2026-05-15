@@ -11,6 +11,7 @@ const t = useTranslations('en');
 <BaseLayout title="Ziqi Chen - Educational Technology · Personal Website" description="Educational Technology researcher personal website">
   <Hero currentLang={currentLang} />
 
+  <div class="content-section container">
   <section class="section container">
     <h2>{t.sections.research}</h2>
     <p>My research focuses on the application of Artificial Intelligence in education, with specific interests in:</p>
@@ -78,9 +79,15 @@ const t = useTranslations('en');
       </a>
     </div>
   </section>
+</div>
 </BaseLayout>
 
 <style>
+  .content-section {
+    background: var(--color-surface);
+    padding: var(--space-8);
+    border-radius: 8px;
+  }
   .social-links {
     display: flex;
     flex-direction: column;
